@@ -1,0 +1,172 @@
+*{
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+#preview img{
+  max-width: 300px;
+  max-height: 400px;
+}
+
+body{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+header{
+  width: 100%;
+  height: 30px;
+  background-color: beige;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding:0px 10px;
+  position: sticky;
+  top: 0px;
+}
+
+#preview{
+  width: 100%;
+  display: flex;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  padding: 50px;
+}
+
+nav{
+  display: flex;
+  gap: 10px;
+
+}
+
+a{
+  text-decoration: none;
+}
+
+a:hover{
+  color:deeppink;
+  text-decoration: underline;
+}
+
+/* paris */
+#paris{
+  margin: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+#paris > img{
+  max-width: 200px;
+  border-radius: 20px;
+  box-shadow: 1px 1px 5px 1px gray;
+}
+
+/* summercamp */
+#summercamp{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+#summercamp > article{
+  display: flex;
+  width: 500px;
+  height: 500px;
+  overflow: hidden;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.summercamp-img{
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+
+
+#summercamp article ul{
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  padding: 0px;
+  width: 100%;
+  height: 245px;
+  gap: 10px;
+}
+
+#summercamp li{
+  margin: 0px;
+  width: 245px;
+}
+
+
+
+/* jeju */
+#jeju{
+  margin: 50px;
+  display: grid;
+  grid-template-columns:250px 250px 250px 250px;
+  grid-template-rows: 200px 200px 200px;
+  gap: 10px;
+  
+}
+
+#jeju div img{
+  width: 100%;
+  height: 100%;
+}
+
+#jeju div:nth-child(1){
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+#jeju div:nth-child(2){
+  grid-column-start: 3;
+  grid-column-end: -1;
+  grid-row-start: 1;
+  grid-row-end:3;
+}
+#jeju div:nth-child(3){
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+#jeju div:nth-child(4){
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 3;
+  grid-row-end:-1;
+}
+#jeju div:nth-child(5){
+  grid-column-start: 4;
+  grid-column-end: -1;
+  grid-row-start: 3;
+  grid-row-end:-1;
+}
+
+/* footer */
+footer{
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:bisque;
+    border-radius: 50px 50px 0px 0px;
+}
+#top{
+  position:fixed;
+  bottom: 50px;
+  right: 80px;
+  font-size: 30px;
+}
