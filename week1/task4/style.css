@@ -1,0 +1,250 @@
+*{
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#wrapper{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+header{
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 22px;
+  font-weight: 700;
+  position: fixed;
+  top: 0px;
+  background-color:#FFF0F5	;
+}
+
+section{
+  position: fixed;
+  width: 100%;
+  top: 50px;
+}
+
+article:nth-child(1){
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+
+#balanceBox{
+  min-width: 300px;
+  width: 90%;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items:center;
+  background-color: #FFF0F5;
+  border-radius: 20px;
+}
+
+#balanceBox > p{
+  font-size: 20px;
+  font-weight: 500;
+}
+
+#balanceBox > h1{
+  font-size: 35px;
+}
+
+#balanceBox ul{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+
+}
+
+#balanceBox ul li:nth-child(1){
+  color: blue;
+
+}
+
+#balanceBox ul li:nth-child(2){
+  color: red;
+
+}
+
+article:nth-child(2){
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid #333;
+  justify-content: baseline;
+  align-items: center;
+}
+
+#navbox{
+  min-width: 300px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  height: 100px;
+  padding: 10px 10px;
+  border-bottom: 0.5px solid gray;
+}
+
+#navbox > nav{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  font-size: 20px;
+}
+
+#navbox > ul{
+  min-width: 300px;
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#nav>ul>li:nth-child(2){
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+#checkBtns{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+/* checkbutton 커스텀 */
+
+#checkBtns label input{
+  display: none;
+}
+
+#checkBtns label input+span{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  width: 50px;
+  height: 30px;
+  background-color: ghostwhite;
+  border: 1px solid #999;
+}
+
+#checkBtns label input:checked+span{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  width: 50px;
+  height: 30px;
+  background-color: #FFF0F5;
+  border: none;
+  
+}
+
+
+/* 소득소비 리스트 부분 */
+ul#lists{
+  width: 100%;
+  height: calc(100vh - 390px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  overflow-y: scroll;
+  margin-bottom: 50px;
+}
+
+ul#lists li{
+  position: relative;
+  width: 90%;
+  min-height: 50px;
+  min-width: 300px;
+  padding: 0 25px;
+  background-color: #FFF0F5;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 15px;
+}
+
+/* 소득소비 리스트의 content 부분 */
+ul#lists li span:nth-child(2){
+  flex: 1;
+  font-weight: 700;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.xbtn{
+  position: absolute;
+  top: 5px;
+  right: 10px;
+
+  border: none;
+}
+
+footer{
+  width: 100%;
+  height: 60px;
+  position: fixed;
+  bottom: 0px;
+  background-color:ghostwhite;
+  border-radius: 10px 10px 0 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+footer button{
+  width: 40px;
+  height: 40px;
+  border: none;
+  font-size: 30px;
+  background-color: #FFF0F5;
+  border-radius: 50px;
+}
+
+/* 소비 */
+.m span:nth-child(3){
+color: red;
+}
+
+/* 소득 */
+.p span:nth-child(3){
+  color: blue;
+}
