@@ -41,6 +41,7 @@ header{
 #preview{
   width: 100%;
   display: flex;
+  gap: 5px;
   overflow-x: scroll;
   overflow-y: hidden;
   padding: 50px;
