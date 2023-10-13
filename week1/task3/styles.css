@@ -12,12 +12,9 @@ html{
   max-height: 400px;
 }
 
-body{
+section:not(#preview){
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 30px;
 }
 
 header{
@@ -71,7 +68,12 @@ header{
 
 nav{
   display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 10px;
+
+  margin: 30px;
+  padding-bottom: 100px;
 
 }
 
@@ -84,7 +86,7 @@ nav a:hover{
   text-decoration: underline;
 }
 
-/* paris */
+/* paris (sec1) */
 #paris{
   width: 100%;
   display: flex;
@@ -170,9 +172,15 @@ nav a:hover{
 
 
 /* jeju */
+#jeju-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 #jeju{
   position: relative;
-  margin-top: 200px;
+  padding: 50px;
   display: grid;
   grid-template-columns:20rem 20rem 20rem 20rem;
   grid-template-rows: 15rem 15rem 15rem;
@@ -181,6 +189,7 @@ nav a:hover{
 }
 
 #jeju div img{
+  object-fit: cover;
   width: 100%;
   height: 100%;
 }
