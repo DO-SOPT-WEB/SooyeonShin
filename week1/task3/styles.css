@@ -26,6 +26,8 @@ header{
   padding:0px 10px;
   position: sticky;
   top: 0px;
+
+  z-index: 100;
 }
 
 #preview{
@@ -35,6 +37,28 @@ header{
   overflow-y: hidden;
   padding: 50px;
 }
+
+/*스크롤바 커스텀*/
+
+#preview::-webkit-scrollbar {
+  height: 25px;
+}
+
+/*  막대기 */
+#preview::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  background-image: url(./imgs/jeju/jeju33.jpeg);
+  background-clip: padding-box; /*스크롤에 여백넣기 -> background에 테두리영역 제외하여 표현*/
+  border: 5px solid transparent;
+}
+
+/* 백그라운드 */
+#preview::-webkit-scrollbar-track {
+  background: #e7f5fd;
+  background-size: cover;
+}
+
+/*스크롤바 커스텀 끝*/
 
 nav{
   display: flex;
@@ -46,25 +70,31 @@ a{
   text-decoration: none;
 }
 
-a:hover{
+nav a:hover{
   color:deeppink;
   text-decoration: underline;
 }
 
 /* paris */
 #paris{
-  margin: 120px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 1rem;
+  padding: 8rem;
 }
 
 #paris > img{
-  max-width: 200px;
+  width: 15rem;
   border-radius: 20px;
   box-shadow: 1px 1px 5px 1px gray;
+  /* object-fit: cover; */
+}
+
+#paris > img:hover{
+  transition: 0.5s; /* 변화가 있을 때 시간차 주기*/
+  transform: translateY(-5px); /*위로 5px이동*/
 }
 
 /* summercamp */
@@ -72,20 +102,8 @@ a:hover{
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 1rem;
 }
-
-#summercamp > article{
-  display: flex;
-  width: 500px;
-  height: 500px;
-  overflow: hidden;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-}
-
 .summercamp-img{
   object-fit: cover;
   width: 100%;
@@ -93,20 +111,35 @@ a:hover{
 }
 
 
+.summercamp-img:hover{ 
+  transition: 0.5s; /* 변화가 있을 때 시간차 주기*/
+  transform: translateY(-5px); /*위로 5px이동*/
+}
 
-#summercamp article ul{
+#summercamp > article{ 
+  display: flex;
+  width: 31rem;
+  height: 31rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+
+#summercamp article ul{ 
   display: flex;
   flex-direction: row;
   list-style: none;
   padding: 0px;
   width: 100%;
-  height: 245px;
-  gap: 10px;
+  height: 15rem;
+  gap: 1rem;
 }
 
 #summercamp li{
   margin: 0px;
-  width: 245px;
+  width: 15rem;
 }
 
 
@@ -115,8 +148,8 @@ a:hover{
 #jeju{
   margin: 50px;
   display: grid;
-  grid-template-columns:250px 250px 250px 250px;
-  grid-template-rows: 200px 200px 200px;
+  grid-template-columns:20rem 20rem 20rem 20rem;
+  grid-template-rows: 15rem 15rem 15rem;
   gap: 10px;
   
 }
