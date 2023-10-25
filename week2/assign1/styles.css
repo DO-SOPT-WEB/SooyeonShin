@@ -98,18 +98,45 @@ nav a:hover{
 }
 
 #paris > .parisContainer{
+  position: relative;
   width: 15rem;
+  height: auto;
   border-radius: 20px;
   box-shadow: 1px 1px 5px 1px gray;
   transition: 0.5s; /* 변화가 있을 때 시간차 주기*/
   flex-grow: 1;
-  object-fit: cover;
   overflow: hidden;
+  display: flex;
 }
 
 .parisContainer img{
   width: 100%;
+}
+
+.pariscontent{
+  position: absolute;
+  width: 100%;
   height: 100%;
+  padding: 10px;
+  display: none;
+  
+  
+}
+
+/* 사진에 대한 제목과 설명 보여주기 */
+.show-paris-content{
+  display: block;
+  background-color: rgba(0, 0, 0, 0.5);
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  font-weight: 500;
+  color: #e7f5fd;
 }
 
 
