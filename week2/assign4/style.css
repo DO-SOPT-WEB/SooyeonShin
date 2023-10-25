@@ -76,16 +76,6 @@ article:nth-child(1){
 
 }
 
-#balanceBox ul li:nth-child(1){
-  color: blue;
-
-}
-
-#balanceBox ul li:nth-child(2){
-  color: red;
-
-}
-
 article:nth-child(2){
   width: 100%;
   display: flex;
@@ -215,6 +205,8 @@ ul#lists li span:nth-child(2){
   white-space: nowrap;
 }
 
+
+
 .xbtn{
   position: absolute;
   top: 5px;
@@ -247,11 +239,19 @@ footer button{
 }
 
 /* 소비 */
-.m span:nth-child(3){
+.expense{
 color: red;
 }
 
+#lists .expense::before{
+  content: '-';
+}
+
 /* 소득 */
-.p span:nth-child(3){
+.income{
   color: blue;
+}
+
+#lists .income::before{
+  content: '+';
 }

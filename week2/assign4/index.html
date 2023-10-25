@@ -15,11 +15,11 @@
       <p>나의 자산</p>
       <h1>234234</h1>
       <ul>
-        <li>
+        <li class="income">
           <span>+</span>
           <span>30000</span>
         </li>
-        <li>
+        <li class="expense">
           <span>-</span>
           <span>2000</span>
         </li>
@@ -29,18 +29,18 @@
     <article>
       <div id="navbox">
         <nav>
-          <button><</button>
+          <button>&LT</button>
           <span>10월 1일</span>
-          <button>></button>
+          <button>&GT</button>
         </nav>
         <ul>
           <li>내역 리스트</li>
           <li id="checkBtns">
-            <label>
+            <label class="income">
               <input type="checkbox" checked="true"/>
               <span>수입</span>
             </label>
-            <label>
+            <label class="expense">
               <input type="checkbox" checked="true"/>
               <span>지출</span>
             </label>
@@ -49,16 +49,16 @@
         </ul>
       </div>
       <ul id="lists">
-        <li class="m">
+        <li>
           <span>식비</span>
           <span>버거킹kingkingkingkingkingkingkingkingking</span>
-          <span>-10232</span>
+          <span class="income">10232</span>
           <button class="xbtn">x</button>
         </li>
-        <li class="p">
+        <li>
           <span>용돈</span>
           <span>냥냥</span>
-          <span>+10232</span>
+          <span class="expense">10232</span>
           <button class="xbtn">x</button>
         </li>
 
@@ -70,5 +70,6 @@
     <button>+</button>
   </footer>
 </div>
+<script src="./index.js"></script>
 </body>
 </html>
