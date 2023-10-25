@@ -97,16 +97,24 @@ nav a:hover{
   padding: 8rem;
 }
 
-#paris > img{
+#paris > .parisContainer{
   width: 15rem;
   border-radius: 20px;
   box-shadow: 1px 1px 5px 1px gray;
   transition: 0.5s; /* 변화가 있을 때 시간차 주기*/
   flex-grow: 1;
   object-fit: cover;
+  overflow: hidden;
 }
 
-#paris > img:hover{
+.parisContainer img{
+  width: 100%;
+  height: 100%;
+}
+
+
+
+#paris > .parisContainer:hover{
   
   transform: translateY(-5px); /*위로 5px이동*/
 }
