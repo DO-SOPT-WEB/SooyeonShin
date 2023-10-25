@@ -1,0 +1,244 @@
+*{
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+#preview img{
+  max-width: 300px;
+  max-height: 400px;
+}
+
+section:not(#preview){
+  display: flex;
+  flex-direction: column;
+}
+
+header{
+  width: 100%;
+  height: 40px;
+  background-image: url(./imgs/jeju/jeju33.jpeg);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding:0px 10px;
+  position: sticky;
+  top: 0px;
+
+  color: white;
+  font-size: 20px;
+  font-weight: 500;
+
+  z-index: 100;
+}
+
+#preview{
+  width: 100%;
+  display: flex;
+  gap: 5px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  padding: 50px;
+}
+
+/*스크롤바 커스텀*/
+
+#preview::-webkit-scrollbar {
+  height: 25px;
+}
+
+/*  막대기 */
+#preview::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  background-image: url(./imgs/jeju/jeju33.jpeg);
+  background-clip: padding-box; /*스크롤에 여백넣기 -> background에 테두리영역 제외하여 표현*/
+  border: 5px solid transparent;
+}
+
+/* 백그라운드 */
+#preview::-webkit-scrollbar-track {
+  background: #e7f5fd;
+  background-size: cover;
+}
+
+/*스크롤바 커스텀 끝*/
+
+nav{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  margin: 30px;
+  padding-bottom: 100px;
+
+}
+
+a{
+  text-decoration: none;
+}
+
+nav a:hover{
+  color:deeppink;
+  text-decoration: underline;
+}
+
+/* paris (sec1) */
+#paris{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 8rem;
+}
+
+#paris > img{
+  width: 15rem;
+  border-radius: 20px;
+  box-shadow: 1px 1px 5px 1px gray;
+  transition: 0.5s; /* 변화가 있을 때 시간차 주기*/
+  flex-grow: 1;
+  object-fit: cover;
+}
+
+#paris > img:hover{
+  
+  transform: translateY(-5px); /*위로 5px이동*/
+}
+
+/* summercamp */
+#summercamp{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1rem;
+  flex-wrap: wrap;
+
+  padding: 12rem;
+  margin-top: 100px;
+}
+.summercamp-img{
+  object-fit: cover;
+  transition: 0.5s; /* 변화가 있을 때 시간차 주기*/
+  flex-grow: 1;
+}
+
+.summercamp-img:hover{ 
+  transform: translateY(-5px); /*위로 5px이동*/
+}
+
+#summercamp > article:nth-child(1){ 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+
+  width: 31rem;
+  height: 31rem;
+}
+
+#summercamp >article:nth-child(1) img{
+  flex-grow: 1;
+  width: 100%;
+  height: 100%;
+}
+
+#summercamp article:nth-child(2){ 
+  width: 31rem;
+  height: 31rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  flex-grow: 1;
+}
+
+#summercamp article:nth-child(2) img{
+  width: 15rem;
+  height: 15rem;
+  flex-grow: 1;
+  object-fit: cover;
+}
+
+
+
+/* jeju */
+#jeju-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#jeju{
+  position: relative;
+  padding: 50px;
+  display: grid;
+  grid-template-columns:20rem 20rem 20rem 20rem;
+  grid-template-rows: 15rem 15rem 15rem;
+  gap: 10px;
+  
+}
+
+#jeju div img{
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+#jeju div:nth-child(1){
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+#jeju div:nth-child(2){
+  grid-column-start: 3;
+  grid-column-end: -1;
+  grid-row-start: 1;
+  grid-row-end:3;
+}
+#jeju div:nth-child(3){
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+#jeju div:nth-child(4){
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 3;
+  grid-row-end:-1;
+}
+#jeju div:nth-child(5){
+  grid-column-start: 4;
+  grid-column-end: -1;
+  grid-row-start: 3;
+  grid-row-end:-1;
+}
+
+/* footer */
+footer{
+  margin-top: 50px;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(./imgs/jeju/jeju1.JPG); 
+  
+  color: white;
+  font-size: 20px;
+  font-weight: 500;
+}
+#top{
+  position:fixed;
+  bottom: 50px;
+  right: 80px;
+  font-size: 30px;
+}
