@@ -111,3 +111,49 @@ const deleteItem=(deleteid)=>{
 }
 
 
+//수입 지출에 따른 카테고리 나누기
+
+const typeBtns=document.querySelectorAll('.select-type-btn'); //radio인 요소들
+const categorySelect = document.getElementById('select-category');//select태그
+
+
+
+typeBtns.forEach(radio => {
+  radio.addEventListener('change', ()=> {
+    changeCategoryType(radio.value);
+  });
+});//radio값이 바뀌면 카테고리 바꿔주는 함수 실행
+
+
+const changeCategoryType=(type)=>{
+  categorySelect.innerHTML = '';
+
+    let options;
+
+    if (type === 'income') {
+      options = [
+        { value: 'income1', text: '과외비' },
+        { value: 'income2', text: '용돈' },
+        { value: 'income3', text: '기타' }
+      ];
+    } else if (type==='expense') {
+      options = [
+        { value: 'expense1', text: '식비' },
+        { value: 'expense2', text: '교통비' },
+        { value: 'expense3', text: '기타' }
+      ];
+    }
+
+    // 새로운 option을 select에 추가
+    options.forEach(option => {
+      const optionElement = document.createElement('option');
+      optionElement.value = option.value;
+      optionElement.textContent = option.text;
+      categorySelect.appendChild(optionElement);
+    });
+
+}
+
+changeCategoryType('income');
+
+
