@@ -218,7 +218,7 @@ ul#lists li span:nth-child(2){
 /* 모달 */
 /* 모달에 대한 기본 스타일 */
 .modal {
-  display: block;
+  display: none;
   position: fixed; 
   z-index: 1; 
   left: 0;

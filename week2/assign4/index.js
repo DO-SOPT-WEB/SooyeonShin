@@ -7,9 +7,11 @@ let HISTORY_LIST=[
 
   //list 추가를 위한 변수들
 let itemContainer;
+let type='income';
 let category;
 let content;
 let amount;
+let nowid=3;
 // let button;
 
 let totalIncome=0;
@@ -78,8 +80,6 @@ window.onload = ()=>{ //최초 실행시 렌더링
   HISTORY_LIST.forEach((list) =>showList(list));
   calculateTotal();
 
-  
-
 }
 
 //수입/지출 필터링 ->filter
@@ -110,6 +110,32 @@ const deleteItem=(deleteid)=>{
   calculateTotal();
 }
 
+/*----------------------------- */
+//모달 표시하고 닫기
+document.addEventListener('DOMContentLoaded', function() {
+  const openModalButton = document.querySelector('footer > button');
+  const closeModalButton = document.querySelector('.closemodal');
+  const modal = document.getElementById('myModal');
+
+  // + 버튼을 클릭하면 모달을 표시
+  openModalButton.addEventListener('click', function() {
+    modal.style.display = 'block';
+  });
+
+  // 닫기 버튼을 클릭하면 모달을 닫음
+  closeModalButton.addEventListener('click', function() {
+    modal.style.display = 'none';
+
+  });
+
+  // 화면 어디든지 클릭하면 모달을 닫음 (모달 자체 위를 제외하고)
+  window.addEventListener('click', (e)=> {
+    if (e.target === modal) {
+      modal.style.display = 'none';
+    }
+  });
+});
+
 
 //수입 지출에 따른 카테고리 나누기
 
@@ -117,10 +143,11 @@ const typeBtns=document.querySelectorAll('.select-type-btn'); //radio인 요소�
 const categorySelect = document.getElementById('select-category');//select태그
 
 
-
 typeBtns.forEach(radio => {
   radio.addEventListener('change', ()=> {
-    changeCategoryType(radio.value);
+    type=radio.value;
+    changeCategoryType(type);
+    console.log(type);
   });
 });//radio값이 바뀌면 카테고리 바꿔주는 함수 실행
 
@@ -132,15 +159,15 @@ const changeCategoryType=(type)=>{
 
     if (type === 'income') {
       options = [
-        { value: 'income1', text: '과외비' },
-        { value: 'income2', text: '용돈' },
-        { value: 'income3', text: '기타' }
+        { value: '과외비', text: '과외비' },
+        { value: '용돈', text: '용돈' },
+        { value: '기타', text: '기타' }
       ];
     } else if (type==='expense') {
       options = [
-        { value: 'expense1', text: '식비' },
-        { value: 'expense2', text: '교통비' },
-        { value: 'expense3', text: '기타' }
+        { value: '식비', text: '식비' },
+        { value: '교통비', text: '교통비' },
+        { value: '기타', text: '기타' }
       ];
     }
 
@@ -156,4 +183,34 @@ const changeCategoryType=(type)=>{
 
 changeCategoryType('income');
 
+//입력값들로 내역 추가하기
+const addListBtn=document.querySelector('.addbtn');
+const addList=()=>{
+  category = document.getElementById('select-category').value;
+  amount=document.getElementById('addamount').value;
+  content = document.getElementById('addcontent').value;
 
+  const newListItem = {
+    id: nowid+1,
+    type: type,
+    category: category,
+    amount:parseInt(amount),
+    content: content,
+  };
+  nowid+=1
+  console.log(newListItem);
+
+  if (!amount || !content) {
+    alert("금액과 내용을 입력해주세요.");
+    return;
+}
+
+  HISTORY_LIST.push(newListItem);
+  listcontent.innerHTML='';
+  HISTORY_LIST.forEach(list=>showList(list));
+  calculateTotal();
+
+  alert("저장이 완료되었습니다!!");
+}
+
+addListBtn.addEventListener('click',addList);
