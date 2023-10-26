@@ -38,7 +38,7 @@ const showList =(list)=>{
   amount.classList.add(list.type);
 
   const button = document.createElement('button');
-  button.textContent = "x";
+  button.textContent = 'x';
   button.classList.add("xbtn");
   itemContainer.appendChild(button);
   //x버튼 클릭시 이벤트
@@ -53,6 +53,7 @@ const showList =(list)=>{
   
 }
 
+//총수익, 총지출, 잔액 구하기
 const calculateTotal=()=>{
   totalExpense=0;
   totalIncome=0;
@@ -81,8 +82,7 @@ window.onload = ()=>{ //최초 실행시 렌더링
 
 }
 
-  //수입/지출 필터링 ->filter
-  
+//수입/지출 필터링 ->filter
 document.getElementById('incomeCheckbox').addEventListener('change',()=>filterList());
 document.getElementById('expenseCheckbox').addEventListener('change',()=>filterList());
 

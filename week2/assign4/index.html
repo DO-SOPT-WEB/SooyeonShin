@@ -66,10 +66,46 @@
       </ul>
     </article>
   </section>
+
+  <section id="myModal" class="modal">
+    <div class="modal-content">
+      <h2>내역 추가</h2>
+      <div id="select-type-container">
+        <label>
+          <input type="radio" name={type} class="select-type-btn" checked="'true"></input>
+          <span>수입</span>
+        </label>
+        <label>
+          <input type="radio" name={type} class="select-type-btn"></input>
+          <span>지출</span>
+        </label>
+      </div>
+      <div class="modal-inputItem-container">
+        <label for="select-category">종류</label>
+        <select id="select-category">
+          <option value="income1">과외비</option>
+          <option value="income2">용돈</option>
+          <option value="income3">기타</option>
+        </select>
+      </div>
+      <div class="modal-inputItem-container">
+        <label for="addamount">금액</label>
+        <input type="number" id="addamount">
+      </div>
+      <div class="modal-inputItem-container">
+        <label for="addcontent">내용</label>
+        <input type="text" id="addcontent">
+      </div>
+      <button type="button" class="addbtn">내역 추가 하기</button>
+      <button type="button" class="closemodal">닫기</button>
+    </div>
+  </section>
+
   <footer>
     <button>+</button>
   </footer>
 </div>
+
 <script src="./index.js"></script>
 </body>
 </html>
