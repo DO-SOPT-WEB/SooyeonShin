@@ -17,42 +17,42 @@ let totalExpense=0;
 
 const listcontent = document.getElementById('lists');
 
-  window.onload = ()=>{ //최초 실행시 렌더링
-    
-
-
-    HISTORY_LIST.forEach(list =>{
-
-      //내역리스트에 HISTORY_LIST 정보 보여주기
-      listcontainer = document.createElement('li');//forEach밖에다 해도 되나..? let아니여도 되나..?
+//각 list의 정보 보여주는 함수 (중복해서 쓰여서 따로 뺌)
+const showList =(list,idx)=>{
+  listcontainer = document.createElement('li');
       
-      category = document.createElement('span');
-      category.textContent=list.category;
-      listcontainer.appendChild(category);
+  category = document.createElement('span');
+  category.textContent=list.category;
+  listcontainer.appendChild(category);
 
-      content = document.createElement('span');
-      content.textContent=list.content;
-      listcontainer.appendChild(content);
+  content = document.createElement('span');
+  content.textContent=list.content;
+  listcontainer.appendChild(content);
 
-      amount = document.createElement('span');
-      amount.textContent=list.amount;
-      listcontainer.appendChild(amount);
-      amount.classList.add(list.type);
+  amount = document.createElement('span');
+  amount.textContent=list.amount;
+  listcontainer.appendChild(amount);
+  amount.classList.add(list.type);
 
-      let button = document.createElement('button');
-      button.textContent = "x";
-      button.classList.add("xbtn");
-      listcontainer.appendChild(button);
+  let button = document.createElement('button');
+  button.textContent = "x";
+  button.classList.add("xbtn");
+  listcontainer.appendChild(button);
+  button.addEventListener('click',()=>{console.log(idx,"삭제 버튼")});
 
-      listcontent.appendChild(listcontainer);
+  listcontent.appendChild(listcontainer);
 
-      //총수익, 총지출 구하기
-      if(list.type==="income"){
-        totalIncome += list.amount;
-      } else if(list.type === "expense"){
-        totalExpense +=list.amount;
-      }
-    });
+  //총수익, 총지출 구하기
+  if(list.type==="income"){
+    totalIncome += list.amount;
+  } else if(list.type === "expense"){
+    totalExpense +=list.amount;
+  }
+}
+
+  window.onload = ()=>{ //최초 실행시 렌더링
+
+    HISTORY_LIST.forEach((list,idx) =>showList(list,idx));
 
     //총수익, 총지출 html에 표시
     document.getElementById('totalIncome').textContent = totalIncome;
@@ -79,31 +79,12 @@ const listcontent = document.getElementById('lists');
       return false;
     });
 
-    new_list.forEach(list =>{
-      listcontainer = document.createElement('li');
-      
-      category = document.createElement('span');
-      category.textContent=list.category;
-      listcontainer.appendChild(category);
-
-      content = document.createElement('span');
-      content.textContent=list.content;
-      listcontainer.appendChild(content);
-
-      amount = document.createElement('span');
-      amount.textContent=list.amount;
-      listcontainer.appendChild(amount);
-      amount.classList.add(list.type);
-
-      let button = document.createElement('button');
-      button.textContent = "x";
-      button.classList.add("xbtn");
-      listcontainer.appendChild(button);
-
-      listcontent.appendChild(listcontainer);
-
-    });
+    new_list.forEach((list,idx) =>showList(list,idx));
   
-
   }
+
+  //수입/지출 필터링 end
+
+  //리스트 삭제 start
+
 
