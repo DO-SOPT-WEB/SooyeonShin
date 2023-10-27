@@ -211,6 +211,9 @@ const addList=()=>{
   calculateTotal();
 
   alert("저장이 완료되었습니다!!");
+  document.getElementById('addamount').value='';
+  document.getElementById('addcontent').value="";
 }
 
 addListBtn.addEventListener('click',addList);
+
