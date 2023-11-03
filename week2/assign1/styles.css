@@ -8,8 +8,8 @@ html{
 }
 
 #preview img{
-  max-width: 300px;
-  max-height: 400px;
+  max-width: 20rem;
+  max-height: 30rem;
 }
 
 section:not(#preview){
@@ -28,11 +28,14 @@ header{
   position: sticky;
   top: 0px;
 
-  color: white;
-  font-size: 20px;
-  font-weight: 500;
+
 
   z-index: 100;
+}
+
+header > h1 {
+  color: white;
+  font-size: 20px;
 }
 
 #preview{
@@ -70,12 +73,22 @@ nav{
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+}
+
+
+nav > ul{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 
   margin: 30px;
   padding-bottom: 100px;
-
+  list-style: none;
+  padding-left: 0;
 }
+
+
 
 a{
   text-decoration: none;
@@ -97,37 +110,35 @@ nav a:hover{
   padding: 8rem;
 }
 
-#paris > .parisContainer{
+.paris-img-container{
   position: relative;
   width: 15rem;
   height: auto;
   border-radius: 20px;
   box-shadow: 1px 1px 5px 1px gray;
-  transition: 0.5s; /* 변화가 있을 때 시간차 주기*/
+  transition: 0.5s; /*변화가 있을 때 시간차 주기*/
   flex-grow: 1;
   overflow: hidden;
   display: flex;
 }
 
-.parisContainer img{
+.paris-img-container img{
   width: 100%;
 }
 
-.pariscontent{
+.paris-img-container:hover{
+  transform: translateY(-5px); /*위로 5px이동*/
+}
+
+.paris-description-container{
+  display: none;
+  background-color: rgba(0, 0, 0, 0.5);
   position: absolute;
   width: 100%;
   height: 100%;
-  padding: 10px;
-  display: none;
-}
-
-/* 사진에 대한 제목과 설명 보여주기 */
-.show-paris-content{
-  display: block;
-  background-color: rgba(0, 0, 0, 0.5);
+  padding: 3rem;
   top: 0;
   left: 0;
-  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -137,11 +148,15 @@ nav a:hover{
   color: #e7f5fd;
 }
 
+.paris-title{
+  font-size: 20px;
+  font-weight: 800;
+}
 
 
-#paris > .parisContainer:hover{
-  
-  transform: translateY(-5px); /*위로 5px이동*/
+
+.show{
+  display: flex;
 }
 
 /* summercamp */
@@ -150,7 +165,7 @@ nav a:hover{
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: flex-start;
+  /* align-items: flex-start; */
   gap: 1rem;
   flex-wrap: wrap;
 
@@ -167,7 +182,7 @@ nav a:hover{
   transform: translateY(-5px); /*위로 5px이동*/
 }
 
-#summercamp > article:nth-child(1){ 
+#summercamp-leftSec{ 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -177,13 +192,13 @@ nav a:hover{
   height: 31rem;
 }
 
-#summercamp >article:nth-child(1) img{
+#summercamp >div:nth-child(1) img{
   flex-grow: 1;
   width: 100%;
   height: 100%;
 }
 
-#summercamp article:nth-child(2){ 
+#summercamp-rightSec{ 
   width: 31rem;
   height: 31rem;
   display: flex;
@@ -195,7 +210,7 @@ nav a:hover{
   flex-grow: 1;
 }
 
-#summercamp article:nth-child(2) img{
+#summercamp div:nth-child(2) img{
   width: 15rem;
   height: 15rem;
   flex-grow: 1;
@@ -212,47 +227,46 @@ nav a:hover{
 }
 
 #jeju{
-  position: relative;
   padding: 50px;
   display: grid;
-  grid-template-columns:20rem 20rem 20rem 20rem;
-  grid-template-rows: 15rem 15rem 15rem;
+  grid-template-columns: repeat(4, 20rem);
+  grid-template-rows: repeat(3,15rem);
   gap: 10px;
   
 }
 
-#jeju div img{
-  object-fit: cover;
+#jeju img{
+  object-fit:cover;
   width: 100%;
   height: 100%;
+
 }
 
-#jeju div:nth-child(1){
-  grid-column-start: 1;
-  grid-column-end: 3;
+  /*grid-column-start: start값;
+  grid-column-end: end값; 
+  ->
+  grid-column : (start 값) / (end 값 )
+  grid-row : (start 값) / (end 값) */
+
+#jeju img:nth-child(1){
+  grid-column: 1/3;
+
 }
 
-#jeju div:nth-child(2){
-  grid-column-start: 3;
-  grid-column-end: -1;
-  grid-row-start: 1;
-  grid-row-end:3;
+#jeju img:nth-child(2){
+  grid-column: 3/-1;
+  grid-row: 1/3;
 }
-#jeju div:nth-child(3){
-  grid-column-start: 1;
-  grid-column-end: 3;
+#jeju img:nth-child(3){
+  grid-column: 1/3;
 }
-#jeju div:nth-child(4){
-  grid-column-start: 1;
-  grid-column-end: 4;
-  grid-row-start: 3;
-  grid-row-end:-1;
+#jeju img:nth-child(4){
+  grid-column: 1/4;
+  grid-row: 3/-1;
 }
-#jeju div:nth-child(5){
-  grid-column-start: 4;
-  grid-column-end: -1;
-  grid-row-start: 3;
-  grid-row-end:-1;
+#jeju img:nth-child(5){
+  grid-column: 4/-1;
+  grid-row: 3/-1;
 }
 
 /* footer */
