@@ -7,68 +7,115 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div id="wrapper">
   <header>수연이의 가계부</header>
-  <section>
-    <article>
-      <div id="balanceBox">
-      <p>나의 자산</p>
-      <h1>234234</h1>
-      <ul>
-        <li>
-          <span>+</span>
-          <span>30000</span>
-        </li>
-        <li>
-          <span>-</span>
-          <span>2000</span>
-        </li>
-      </ul>
-      </div>
-    </article>
-    <article>
-      <div id="navbox">
-        <nav>
-          <button><</button>
-          <span>10월 1일</span>
-          <button>></button>
-        </nav>
+  <main>
+      <article id="balance-container">
+        <div id="balanceBox">
+        <p>나의 자산</p>
+        <div id="balance">234234</div>
         <ul>
-          <li>내역 리스트</li>
-          <li id="checkBtns">
-            <label>
-              <input type="checkbox" checked="true"/>
-              <span>수입</span>
-            </label>
-            <label>
-              <input type="checkbox" checked="true"/>
-              <span>지출</span>
-            </label>
-            
+          <li class="income">
+            <span>30000</span>
+          </li>
+          <li class="expense">
+            <span>2000</span>
           </li>
         </ul>
-      </div>
-      <ul id="lists">
-        <li class="m">
-          <span>식비</span>
-          <span>버거킹kingkingkingkingkingkingkingkingking</span>
-          <span>-10232</span>
-          <button class="xbtn">x</button>
-        </li>
-        <li class="p">
-          <span>용돈</span>
-          <span>냥냥</span>
-          <span>+10232</span>
-          <button class="xbtn">x</button>
-        </li>
-
-        
-      </ul>
-    </article>
-  </section>
+        </div>
+      </article>
+      <article id="list-wrapper">
+        <section id="middle-container">
+          <nav id="date-nav">
+            <button>&lt;</button>
+            <span id="date">10월 1일</span>
+            <button>&gt;</button>
+          </nav>
+          <div id="list-header">
+            <h3>내역 리스트</h3>
+            <div id="checkBtns">
+              <label>
+                <input type="checkbox" checked="true"/>
+                <span>수입</span>
+              </label>
+              <label>
+                <input type="checkbox" checked="true"/>
+                <span>지출</span>
+              </label>
+            </div>
+          </div>
+        </section>
+        <ul id="lists">
+          <li>
+            <span class="list-category">식비</span>
+            <span class="list-content">버거킹kingkingkingkingkingkingkingkingking</span>
+            <span class="list-amount income">10232</span>
+            <button type="button" class="xbtn">x</button>
+          </li>
+          <li>
+            <span class="list-category">용돈</span>
+            <span class="list-content">냥냥</span>
+            <span class="list-amount expense">10232</span>
+            <button class="xbtn">x</button>
+          </li>
+          <li>
+            <span class="list-category">용돈</span>
+            <span class="list-content">냥냥</span>
+            <span class="list-amount expense">10232</span>
+            <button class="xbtn">x</button>
+          </li>
+          <li>
+            <span class="list-category">용돈</span>
+            <span class="list-content">냥냥</span>
+            <span class="list-amount expense">10232</span>
+            <button class="xbtn">x</button>
+          </li>
+          <li>
+            <span class="list-category">용돈</span>
+            <span class="list-content">냥냥</span>
+            <span class="list-amount expense">10232</span>
+            <button class="xbtn">x</button>
+          </li>
+          <li>
+            <span class="list-category">용돈</span>
+            <span class="list-content">냥냥</span>
+            <span class="list-amount expense">10232</span>
+            <button class="xbtn">x</button>
+          </li>
+          <li>
+            <span class="list-category">용돈</span>
+            <span class="list-content">냥냥</span>
+            <span class="list-amount expense">10232</span>
+            <button class="xbtn">x</button>
+          </li>
+          <li>
+            <span class="list-category">용돈</span>
+            <span class="list-content">냥냥</span>
+            <span class="list-amount expense">10232</span>
+            <button class="xbtn">x</button>
+          </li>
+          <li>
+            <span class="list-category">용돈</span>
+            <span class="list-content">냥냥</span>
+            <span class="list-amount expense">10232</span>
+            <button class="xbtn">x</button>
+          </li>
+          <li>
+            <span class="list-category">용돈</span>
+            <span class="list-content">냥냥</span>
+            <span class="list-amount expense">10232</span>
+            <button class="xbtn">x</button>
+          </li>
+          <li>
+            <span class="list-category">용돈</span>
+            <span class="list-content">냥냥</span>
+            <span class="list-amount expense">10232</span>
+            <button class="xbtn">x</button>
+          </li>
+        </ul>
+      </article>
+  </main>
   <footer>
     <button>+</button>
   </footer>
-</div>
 </body>
 </html>
