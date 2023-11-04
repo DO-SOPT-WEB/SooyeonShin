@@ -27,14 +27,18 @@ const showList =(list)=>{
   itemContainer = document.createElement('li');
       
   category = document.createElement('span');
+  category.classList.add("list-category")
   category.textContent=list.category;
   itemContainer.appendChild(category);
 
   content = document.createElement('span');
+  content.classList.add("list-content");
   content.textContent=list.content;
   itemContainer.appendChild(content);
 
   amount = document.createElement('span');
+  amount.classList.add("list-amount");
+  amount.classList.add(list.type);
   amount.textContent=list.amount;
   itemContainer.appendChild(amount);
   amount.classList.add(list.type);
