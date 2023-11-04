@@ -131,7 +131,7 @@ nav a:hover{
 }
 
 .paris-description-container{
-  display: none;
+  display: flex;
   background-color: rgba(0, 0, 0, 0.5);
   position: absolute;
   width: 100%;
@@ -153,10 +153,22 @@ nav a:hover{
   font-weight: 800;
 }
 
+.paris-content{ /*3줄 이상 말줄임표*/
+  text-overflow:ellipsis;
+  overflow:hidden;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+  line-height: 25px;
+}
 
-
-.show{
-  display: flex;
+.read-more-btn{
+  width: 5rem;
+  height: 3rem;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
 }
 
 /* summercamp */

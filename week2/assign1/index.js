@@ -11,7 +11,6 @@ const addDescriptionTag=()=>{
 
     parisImg.forEach(img => {
         let title = img.getAttribute('title');// img태그의 요소 title가져오기
-        console.log(title);
         let content = img.getAttribute('content');
         
         let descriptionContainer=document.createElement('div');//제목과 설명 담을 div
@@ -20,54 +19,62 @@ const addDescriptionTag=()=>{
         titleP.classList.add('paris-title');
         titleP.innerText=title;
         let contentP = document.createElement('p');
-        titleP.classList.add('paris-content');
+        contentP.classList.add('paris-content');
         contentP.innerText=content;
         
         img.parentNode.appendChild(descriptionContainer);//img태그의 부모인 paris-img-container태그의 자식으로 넣어줘야함
         descriptionContainer.appendChild(titleP);
         descriptionContainer.appendChild(contentP);
+        descriptionContainer.style.visibility = 'hidden';
+
+        addReadMoreBtn(contentP);
 
         img.parentNode.addEventListener('mouseover', ()=> {
-            descriptionContainer.classList.add('show');
+            // descriptionContainer.classList.add('show');
+            descriptionContainer.style.visibility = 'visible';
+
           });
       
         img.parentNode.addEventListener('mouseout', ()=> {
-            descriptionContainer.classList.remove('show'); // 마우스를 떼면 숨깁니다.
+            // descriptionContainer.classList.remove('show'); // 마우스를 떼면 숨깁니다.
+            descriptionContainer.style.visibility = 'hidden';
+
           });
     })
     
 }
 
-// const showDescription=()=>{
-//     parisContainer.addEventListener('mouseover', () => {
-//         descriptionContainer.style.display = 'block'; 
-//       });
-// }
+const addReadMoreBtn = (contentP) => {
+    // CSS에서 지정된 줄 높이와 줄 수에 따라 p 태그의 최대 높이를 계산합니다.
+    const lineHeight = parseInt(window.getComputedStyle(contentP).lineHeight);
+    const maxHeight = lineHeight * 3; // 여기서는 3줄로 가정합니다.
+  
+    // content의 실제 높이가 계산된 최대 높이를 초과하는지 확인합니다.
+    if (contentP.scrollHeight > maxHeight) {
+  
+      // 더보기 버튼 생성
+      let readMoreBtn = document.createElement('button');
+      readMoreBtn.innerText = '더보기';
+      readMoreBtn.classList.add('read-more-btn');
 
-// const hideDescription=()=>{
-//     parisContainer.addEventListener('mouseout',()=>{
-//         descriptionContainer.style.display = 'none'; 
-//     })
-// }
+      contentP.parentNode.appendChild(readMoreBtn);
+  
+      // 더보기 버튼 클릭 이벤트 리스너
+      readMoreBtn.addEventListener('click', () => {
+        contentP.classList.remove('paris-content');
+        readMoreBtn.remove();
+        
+      });
+  
+
+    }
+  };
+
 
 addDescriptionTag();
-// showDescription();
-// hideDescription();
 
-/*
-parisContainers.forEach(function(container) {
-    container.addEventListener('mouseover', function() {
-        let content = container.querySelector('div');
-        content.classList.add('show-paris-content');
-    });
 
-    container.addEventListener('mouseout', function() {
-        let content = container.querySelector('div');
-        content.classList.remove('show-paris-content')
-        //content.parentNode.removeChild(content);
-    });
-});
-*/
+
 
 // 버튼 투명도
 window.addEventListener('scroll', ()=> {
