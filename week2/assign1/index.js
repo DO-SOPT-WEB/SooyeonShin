@@ -30,15 +30,22 @@ const addDescriptionTag=()=>{
         addReadMoreBtn(contentP);
 
         //추후에 함수로 따로 빼내기!
-        img.parentNode.addEventListener('mouseover', ()=> {
-            descriptionContainer.style.visibility = 'visible';
-          });
-      
-        img.parentNode.addEventListener('mouseout', ()=> {
-            descriptionContainer.style.visibility = 'hidden';
-          });
+        showContent(img,descriptionContainer);
+        hideContent(img,descriptionContainer);
     })
     
+}
+
+const showContent=(img,descriptionContainer)=>{
+    img.parentNode.addEventListener('mouseover', ()=> {
+        descriptionContainer.style.visibility = 'visible';
+      });
+}
+
+const hideContent=(img,descriptionContainer)=>{
+    img.parentNode.addEventListener('mouseout', ()=> {
+        descriptionContainer.style.visibility = 'hidden';
+      });
 }
 
 const addReadMoreBtn = (contentP) => {
