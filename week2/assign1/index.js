@@ -29,27 +29,27 @@ const addDescriptionTag=()=>{
 
         addReadMoreBtn(contentP);
 
+        //추후에 함수로 따로 빼내기!
         img.parentNode.addEventListener('mouseover', ()=> {
-            // descriptionContainer.classList.add('show');
             descriptionContainer.style.visibility = 'visible';
-
           });
       
         img.parentNode.addEventListener('mouseout', ()=> {
-            // descriptionContainer.classList.remove('show'); // 마우스를 떼면 숨깁니다.
             descriptionContainer.style.visibility = 'hidden';
-
           });
     })
     
 }
 
 const addReadMoreBtn = (contentP) => {
-    // CSS에서 지정된 줄 높이와 줄 수에 따라 p 태그의 최대 높이를 계산합니다.
+    // 줄 높이와 줄 수에 따라 p 태그의 최대 높이를 계산
+    
     const lineHeight = parseInt(window.getComputedStyle(contentP).lineHeight);
-    const maxHeight = lineHeight * 3; // 여기서는 3줄로 가정합니다.
+    const maxHeight = lineHeight * 3;
   
-    // content의 실제 높이가 계산된 최대 높이를 초과하는지 확인합니다.
+    // content의 실제 높이가 계산된 최대 높이를 초과하는지 확인
+    // display:none이면 렌더링 되지않아 scrollHeight를 못가져옴 
+    //  -> visibilty로 레이아웃 상 공간은 차지하지만 보이지 않게
     if (contentP.scrollHeight > maxHeight) {
   
       // 더보기 버튼 생성
@@ -63,7 +63,6 @@ const addReadMoreBtn = (contentP) => {
       readMoreBtn.addEventListener('click', () => {
         contentP.classList.remove('paris-content');
         readMoreBtn.remove();
-        
       });
   
 
