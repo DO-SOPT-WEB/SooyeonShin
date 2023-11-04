@@ -39,6 +39,33 @@ header > h1 {
 }
 
 #preview{
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: baseline;
+  align-items: center;
+}
+
+/* 좌,우 이동버튼 */
+#preview-go-left,#preview-go-right{
+  position: absolute;
+  font-size: 40px;
+  font-weight: 800;
+  cursor: pointer;
+  color:hotpink;
+  border: none;
+  background-color: transparent;
+}
+#preview-go-left{
+  left: 2rem;
+}
+
+#preview-go-right{
+  right: 2rem;
+}
+
+
+#preview-imgs{
   width: 100%;
   display: flex;
   gap: 5px;
@@ -46,6 +73,8 @@ header > h1 {
   overflow-y: hidden;
   padding: 50px;
 }
+
+
 
 /*스크롤바 커스텀*/
 
@@ -110,18 +139,65 @@ nav a:hover{
   padding: 8rem;
 }
 
-#paris > img{
+.paris-img-container{
+  position: relative;
   width: 15rem;
+  height: auto;
   border-radius: 20px;
   box-shadow: 1px 1px 5px 1px gray;
-  transition: 0.5s; /* 변화가 있을 때 시간차 주기*/
+  transition: 0.5s; /*변화가 있을 때 시간차 주기*/
   flex-grow: 1;
-  object-fit: cover;
+  overflow: hidden;
+  display: flex;
 }
 
-#paris > img:hover{
-  
+.paris-img-container img{
+  width: 100%;
+}
+
+.paris-img-container:hover{
   transform: translateY(-5px); /*위로 5px이동*/
+}
+
+.paris-description-container{
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 3rem;
+  top: 0;
+  left: 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  font-weight: 500;
+  color: #e7f5fd;
+}
+
+.paris-title{
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.paris-content{ /*3줄 이상 말줄임표*/
+  text-overflow:ellipsis;
+  overflow:hidden;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+  line-height: 25px;
+}
+
+.read-more-btn{
+  width: 5rem;
+  height: 3rem;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
 }
 
 /* summercamp */

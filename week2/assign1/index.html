@@ -12,6 +12,8 @@
   <header><h1>✨여니꾸✨이모저모✨</h1></header>
   <main>
     <section id="preview">
+      <button id="preview-go-left" type="button">&lt;</button>
+      <div id="preview-imgs" >
       <img src="./imgs/paris/paris3.jpeg" alt="paris3"/>
       <img src="./imgs/paris/paris6.jpeg" alt="paris6"/>
       <img src="./imgs/paris/paris8.jpeg" alt="paris8"/>
@@ -19,6 +21,8 @@
       <img src="./imgs/summercamp/summercamp5.JPG" alt="summercamp5"/>
       <img src="./imgs/jeju/jeju3.jpeg" alt="jeju3"/>
       <img src="./imgs/jeju/jeju4.jpeg" alt="jeju4"/>
+      </div>
+      <button id="preview-go-right" type="button">&gt;</button>
     </section>
     <nav>
       <ul>
@@ -32,14 +36,30 @@
     <section> 
       <header>paris🇫🇷</header>
       <article id="paris">
-        <img src="./imgs/paris/paris1.JPG" alt="공항">
-        <img src="./imgs/paris/paris2.jpeg" alt="에펠탑1">
-        <img src="./imgs/paris/paris3.jpeg" alt="에펠탑2">
-        <img src="./imgs/paris/paris4.JPG" alt="에펠탑3">
-        <img src="./imgs/paris/paris5.jpeg" alt="루브르">
-        <img src="./imgs/paris/paris6.jpeg" alt="디즈니 미니 셋">
-        <img src="./imgs/paris/paris7.jpeg" alt="몽상미셸">
-        <img src="./imgs/paris/paris8.jpeg" alt="에펠탑 키링">
+        <div class="paris-img-container">
+        <img src="./imgs/paris/paris1.JPG" alt="공항" title="출국 전" 
+        content="새벽 6시에 공항버스타고 도착해서 찍은 사진!! 12시간 비행을 위해 최적의 상태로.."></div>
+        <div class="paris-img-container">
+        <img src="./imgs/paris/paris2.jpeg" alt="에펠탑1" title="에펠탑"
+        content="본격 여행 첫째날 완전 보고싶었던 에펠탑 영접..✨"></div>
+        <div class="paris-img-container">
+        <img src="./imgs/paris/paris3.jpeg" alt="에펠탑2" title="에펠탑22"
+        content="걷다가 에펠탑 보이면 사진찍기 필슈"></div>
+        <div class="paris-img-container">
+        <img src="./imgs/paris/paris4.JPG" alt="에펠탑3" title="에펠탑333"
+        content="도로 중앙선인데 포토존이라서 앞에 사람들 쭉~~ 서있었다ㅎㅎ"></div>
+        <div class="paris-img-container">
+        <img src="./imgs/paris/paris5.jpeg" alt="루브르" title="루브르"
+        content="박물관 투어한날!!! 박물관/미술관 3개에 에투알개선문 계단타기까지..."></div>
+        <div class="paris-img-container">
+        <img src="./imgs/paris/paris6.jpeg" alt="디즈니 미니 셋" title="디즈니 미니 세마리"
+        content="안경까지 맞춰서 갔다ㅎㅎ 근데 이 사진 뒤에 보면 커플이 신스틸함"></div>
+        <div class="paris-img-container">
+        <img src="./imgs/paris/paris7.jpeg" alt="몽상미셸" title="몽생미셸"
+        content="복 10시간 버스타고 갔는데 날이 흐려서 아쉽.."></div>
+        <div class="paris-img-container">
+        <img src="./imgs/paris/paris8.jpeg" alt="에펠탑 키링" title="반짝반짝"
+        content="에펠탑 키링 파는 사람이 반짝반짝 이러고 한국말해서 어쩔 수 없이 (친구가) 사버린 키링 친구가 큰거하나 샀더니 옆에 있는 우리한테 서비스로 미니키링 줬다!! 안받았음 후회할뻔"></div>
       </article>
     </section>
 
@@ -76,5 +96,6 @@
     
   </footer>
   <a href="#preview" id="top">🔝</a>
+  <script src="./index.js"></script>
 </body>
 </html>
