@@ -39,6 +39,33 @@ header > h1 {
 }
 
 #preview{
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: baseline;
+  align-items: center;
+}
+
+/* 좌,우 이동버튼 */
+#preview-go-left,#preview-go-right{
+  position: absolute;
+  font-size: 40px;
+  font-weight: 800;
+  cursor: pointer;
+  color:hotpink;
+  border: none;
+  background-color: transparent;
+}
+#preview-go-left{
+  left: 2rem;
+}
+
+#preview-go-right{
+  right: 2rem;
+}
+
+
+#preview-imgs{
   width: 100%;
   display: flex;
   gap: 5px;
@@ -46,6 +73,8 @@ header > h1 {
   overflow-y: hidden;
   padding: 50px;
 }
+
+
 
 /*스크롤바 커스텀*/
 

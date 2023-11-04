@@ -73,6 +73,18 @@ const addReadMoreBtn = (contentP) => {
 addDescriptionTag();
 
 
+//preview 버튼로직
+const goLeft=$("#preview-go-left");
+const goRight=$("#preview-go-right");
+const previewImgContainer=$("#preview-imgs");
+
+goLeft.addEventListener("click",()=>{
+    previewImgContainer.scrollLeft=0;
+})
+
+goRight.addEventListener("click",()=>{
+    previewImgContainer.scrollLeft=previewImgContainer.clientWidth;
+})
 
 
 // 버튼 투명도
