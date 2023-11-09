@@ -223,7 +223,9 @@ ul#lists li{
 /* 모달에 대한 기본 스타일 */
 .modal {
   display: none;
-  position: fixed; 
+  position: fixed;
+  align-items: center;
+  justify-content: center; 
   z-index: 1; 
   left: 0;
   top: 0;
@@ -233,7 +235,8 @@ ul#lists li{
   background-color: rgba(0,0,0,0.4);
 }
 
-.modal-content {
+/* 내역추가 모달 */
+.add-modal-content {
   position: fixed;
   background-color: #fefefe;
   width: 100%;
@@ -246,6 +249,44 @@ ul#lists li{
   align-items: center;
   padding: 15px 15%;
   gap: 15px;
+}
+
+/* 삭제 모달 */
+.delete-modal-content{
+  position: fixed;
+  background-color: #fefefe;
+  width: 50%;
+  min-width: 400px;
+  height: 30%;
+  border-radius: 20px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 25%;
+}
+
+.delete-modal-content p{
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.delete-modal-content span{
+  display: flex;
+  gap: 30px;
+}
+
+.delete-modal-content button{
+  width: 100px;
+  height: 30px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.delete-modal-content button:hover{
+  background-color: #FFF0F5;
 }
 
 

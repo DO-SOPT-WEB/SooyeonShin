@@ -46,11 +46,15 @@ const showList =(list)=>{
   const button = document.createElement('button');
   button.textContent = 'x';
   button.classList.add("xbtn");
+  button.id=list.id;
   itemContainer.appendChild(button);
   //x버튼 클릭시 이벤트
-  button.addEventListener('click',()=>{
-    console.log(list.id,"삭제 버튼"); 
-    deleteItem(list.id);
+  button.addEventListener('click',(e)=>{
+    console.log(e.target.id);
+    deleteid=e.target.id;
+    let deletemodal=document.getElementById('delete-modal');
+    deletemodal.style.display='flex';
+    deletemodalfuc();
     console.log(HISTORY_LIST)
   });
 
@@ -108,34 +112,65 @@ const filterList=()=>{
 
 //리스트 삭제
 const deleteItem=(deleteid)=>{
+
   HISTORY_LIST = HISTORY_LIST.filter(item => item.id!==deleteid);
   listcontent.innerHTML='';
   HISTORY_LIST.forEach(list=>showList(list));
   calculateTotal();
 }
 
-/*----------------------------- */
-//모달 표시하고 닫기
-document.addEventListener('DOMContentLoaded', function() {
-  const openModalButton = document.querySelector('footer > button');
-  const closeModalButton = document.querySelector('.closemodal');
-  const modal = document.getElementById('myModal');
+let deleteid=null;
+//삭제시 뜨는 모달
+const deletemodalfuc=()=>{
+  let deleteBtn = document.querySelector('.delete');
+  let closeModalButton = document.querySelector('#delete-modal .closemodal');
+  let deletemodal=document.getElementById('delete-modal');
 
-  // + 버튼을 클릭하면 모달을 표시
-  openModalButton.addEventListener('click', function() {
-    modal.style.display = 'block';
-  });
+
+
+  deleteBtn.addEventListener('click',()=>{
+    deleteItem(deleteid);
+    deletemodal.style.display='none';
+    deleteid=null;
+  })
 
   // 닫기 버튼을 클릭하면 모달을 닫음
-  closeModalButton.addEventListener('click', function() {
-    modal.style.display = 'none';
-
+  closeModalButton.addEventListener('click', ()=> {
+    deletemodal.style.display='none';
   });
 
   // 화면 어디든지 클릭하면 모달을 닫음 (모달 자체 위를 제외하고)
   window.addEventListener('click', (e)=> {
-    if (e.target === modal) {
-      modal.style.display = 'none';
+    if (e.target === deletemodal) {
+      deletemodal.style.display='none';
+    }
+  });
+}
+
+deletemodalfuc();
+
+/*----------------------------- */
+//모달 표시하고 닫기
+//dom tree가 완전히 로드 되고 실행할 함수 (굳이 필요할거 같진 않지만 사진관하다가 dom로드 안돼서 null값 뜨는 경우가 있어서.. 추가해 봤슴다)
+document.addEventListener('DOMContentLoaded', ()=>{
+  const openModalButton = document.querySelector('footer > button');
+  const closeModalBtn = document.querySelector('#add-modal .closemodal');
+  const addmodal = document.getElementById('add-modal');
+
+  // + 버튼을 클릭하면 모달을 표시
+  openModalButton.addEventListener('click', ()=> {
+    addmodal.style.display = 'block';
+  });
+
+  // 닫기 버튼을 클릭하면 모달을 닫음
+  closeModalBtn.addEventListener('click', ()=> {
+    addmodal.style.display = 'none';
+  });
+
+  // 화면 어디든지 클릭하면 모달을 닫음 (모달 자체 위를 제외하고)
+  window.addEventListener('click', (e)=> {
+    if (e.target === addmodal) {
+      addmodal.style.display = 'none';
     }
   });
 });
