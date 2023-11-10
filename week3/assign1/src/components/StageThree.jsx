@@ -12,7 +12,7 @@ const StageThree = (props) => {
 
   return (
     <Wrapper>
-      <div id="progress">1 / 3</div>
+      <div id="progress">3 / 3</div>
       <RadioContainer>
         <RadioLabel selected={state === 0} onClick={() => setState(0)}>
           국물O
