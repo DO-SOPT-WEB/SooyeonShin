@@ -6,13 +6,13 @@ import Button from "./Button";
  * props: changeType, changeStage
 */
 const SelectType =(props)=>{
-  const [state,SetState]=useState(0);
+  const [state,SetState]=useState(props.type);
   let contentContainer;
   let buttonContainer
 
-  const change=()=>{
+  const change=(_state)=>{
     props.changeType(state);
-    props.changeStage(1);
+    props.changeStage(_state);
   }
 
   switch (state) {
@@ -24,11 +24,11 @@ const SelectType =(props)=>{
       contentContainer=
       <button className="choose">취향대로 추천</button>
       ;
-      buttonContainer=<Button content="Start!" onClick={()=>change()}></Button>
+      buttonContainer=<Button content="Start!" onClick={()=>change(1)}></Button>
       break;
     case 2:
       contentContainer=<button className="choose">랜덤 추천</button>;
-      buttonContainer=<Button content="Start!" onClick={()=>change()}></Button>
+      buttonContainer=<Button content="Start!" onClick={()=>change(5)}></Button>
       break;
     
   }

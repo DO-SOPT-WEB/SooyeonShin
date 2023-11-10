@@ -7,9 +7,10 @@ import StageOne from "./StageOne";
 import StageTwo from "./StageTwo";
 import StageThree from "./StageThree";
 import ResultMenu from "./ResultMenu";
+import Random from "./Random";
 
 const Main =()=>{
-  const [type,setType]=useState(0); //취향대로 추천인지, 랜덤추천인지
+  const [type,setType]=useState(0); //취향대로 추천인지(1), 랜덤추천인지(2) 
   const [stage,setStage]= useState(0); //몇번째 단계인지 나타내주기
   const [title, setTitle] = useState("원하는 추천 방식을 골라줘!");
   //취향대로 추천
@@ -48,7 +49,7 @@ const Main =()=>{
 
     switch (stage) {
       case 0:
-        return <SelectType changeType={changeType} changeStage={changeStage} />;
+        return <SelectType changeType={changeType} changeStage={changeStage} type={type}/>;
       case 1:
         return <StageOne changeStage={changeStage} changeStageValue={changeStageValue} />;
       case 2:
@@ -56,7 +57,9 @@ const Main =()=>{
       case 3:
         return <StageThree changeStage={changeStage} changeStageValue={changeStageValue} />;   
       case 4:
-        return <ResultMenu changeStage={changeStage} result={stageValue}/>;   
+        return <ResultMenu changeStage={changeStage} result={stageValue} type={type}/>;
+      case 5: //랜덤
+        return <Random changeStage={changeStage} changeStageValue={changeStageValue}></Random>   
       default:
         break;
     }
@@ -66,7 +69,7 @@ const Main =()=>{
 
   return <MainTag>
     <article>
-      <Title title={title}/>
+      {stage!==5?<Title title={title}/>:<></>}
       <SelectSection>
         {
           renderStage()

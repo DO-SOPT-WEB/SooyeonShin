@@ -26,7 +26,9 @@ const ResultMenu = (props) => {
        <div>{resultMenuInfo.title}</div>
       </MenuContainer>
       <ButtonContainer>
-        <Button content="다시하기" onClick={() => change(0)}></Button>
+        <Button content="다시하기" 
+        onClick={
+          () => {change(0)}}></Button>
       </ButtonContainer>
     </Wrapper>
   );
