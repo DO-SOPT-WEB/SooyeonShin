@@ -1,19 +1,10 @@
 import { useState, useEffect } from 'react';
 import recommendationList from '../assets/recommendationList';
-import { styled } from 'styled-components';
+import styled from 'styled-components';
 
 function Random(props) {
   const [countdown, setCountdown] = useState(3);
-  let seletOne;
-  let selectTwo;
-  let selectThree;
-
-  const change=(_seletOne,_selectTwo,_selectThree)=>{
-    props.changeStageValue(1,_seletOne);
-    props.changeStageValue(2,_selectTwo);
-    props.changeStageValue(3,_selectThree);
-    props.changeStage(4);
-  }
+  
 
   
    useEffect(() => {
@@ -22,13 +13,16 @@ function Random(props) {
       return () => clearTimeout(timer);
     } else {
       // 각 선택 단계에 대한 랜덤 인덱스 생성
-      seletOne = Math.floor(Math.random() * Object.keys(recommendationList).length);
-      selectTwo = Math.floor(Math.random() * Object.keys(recommendationList[seletOne]).length);
-      selectThree = Math.floor(Math.random() * Object.keys(recommendationList[seletOne][selectTwo]).length);
+      const selectOne = Math.floor(Math.random() * Object.keys(recommendationList).length);
+      const selectTwo = Math.floor(Math.random() * Object.keys(recommendationList[selectOne]).length);
+      const selectThree = Math.floor(Math.random() * Object.keys(recommendationList[selectOne][selectTwo]).length);
   
-      change(seletOne,selectTwo,selectThree);
+      props.changeStageValue(1, selectOne);
+      props.changeStageValue(2, selectTwo);
+      props.changeStageValue(3, selectThree);
+      props.changeStage(4);
     }
-  }, [countdown]);
+  }, [countdown, props.changeStageValue, props.changeStage]);
   
 
   return (<CountContainer>

@@ -6,7 +6,7 @@ const StageThree = (props) => {
   const [state, setState] = useState(null);
 
   const change = (nextstage) => {
-    props.changeStageValue(state);
+    props.changeStageValue(3,state);
     props.changeStage(nextstage);
   };
 

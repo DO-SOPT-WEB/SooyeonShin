@@ -23,10 +23,10 @@ const Main =(props)=>{
   };
 
   //각 stage에서 뭘 선택했는지 바꿔주는 함수 (자식컴포에 전달할)
-  const changeStageValue=(_stageValue)=>{
+  const changeStageValue=(_stage,_stageValue)=>{
     setStageValue(prevValues => {
       const newValues = [...prevValues];//const? let?
-      newValues[stage] = _stageValue;
+      newValues[_stage] = _stageValue;
       return newValues;
     });
   }
