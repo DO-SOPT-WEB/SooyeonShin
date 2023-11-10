@@ -12,6 +12,7 @@ const StageTwo = (props) => {
 
   return (
     <Wrapper>
+      <div id="progress">1 / 3</div>
       <RadioContainer>
         <RadioLabel selected={state === 0} onClick={() => setState(0)}>
           밥
@@ -39,7 +40,7 @@ const StageTwo = (props) => {
         </RadioLabel>
       </RadioContainer>
       <ButtonContainer>
-        <Button content="이전으로" onClick={() => change(1)} state={state}></Button>
+        <Button content="이전으로" onClick={() => change(1)} state={1}></Button>
         <Button content="다음으로" onClick={() => change(3)} state={state}></Button>
       </ButtonContainer>
     </Wrapper>
@@ -53,6 +54,13 @@ const Wrapper = styled.div`
   flex-direction: column;
   gap: 3rem;
   align-items: center;
+
+  & > #progress{
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    
+  }
 `;
 
 const RadioContainer = styled.div`

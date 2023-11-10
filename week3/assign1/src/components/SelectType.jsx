@@ -69,7 +69,9 @@ const Wrapper=styled.div`
 
   }
     .chooseYet:hover{
+        /* border: 5px solid #d49898; */
         background-color: #f2dcdc;
+        color: #d49898;
         cursor: pointer;
       }
     & >.choose{

@@ -48,6 +48,16 @@ const CountContainer=styled.div`
   font-size: 50px;
   font-weight: 800;
   font-style: italic;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), /* 흰색 불빛 */
+               0 0 20px rgba(255, 255, 255, 0.8), 
+               /* 0 0 30px rgba(255, 255, 255, 0.8),  */
+               0 0 30px #d49898,  /* 핑크색 불빛 */
+               0 0 40px #d49898, 
+               0 0 60px #d49898, 
+               0 0 80px #d49898,
+               0 0 100px #d49898,
+               0 0 120px #d49898;
 `
 
 

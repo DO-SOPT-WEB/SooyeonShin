@@ -9,7 +9,7 @@ import StageThree from "./StageThree";
 import ResultMenu from "./ResultMenu";
 import Random from "./Random";
 
-const Main =()=>{
+const Main =(props)=>{
   const [type,setType]=useState(0); //취향대로 추천인지(1), 랜덤추천인지(2) 
   const [stage,setStage]= useState(0); //몇번째 단계인지 나타내주기
   const [title, setTitle] = useState("원하는 추천 방식을 골라줘!");
@@ -19,6 +19,7 @@ const Main =()=>{
   //랜덤인지 취향인지
   const changeType=(_type)=>{
     setType(_type);
+    props.onType(_type);
   };
 
   //각 stage에서 뭘 선택했는지 바꿔주는 함수 (자식컴포에 전달할)

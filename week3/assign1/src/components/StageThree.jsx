@@ -12,6 +12,7 @@ const StageThree = (props) => {
 
   return (
     <Wrapper>
+      <div id="progress">1 / 3</div>
       <RadioContainer>
         <RadioLabel selected={state === 0} onClick={() => setState(0)}>
           국물O
@@ -31,7 +32,7 @@ const StageThree = (props) => {
         </RadioLabel>
       </RadioContainer>
       <ButtonContainer>
-        <Button content="이전으로" onClick={() => change(2)} state={state}></Button>
+        <Button content="이전으로" onClick={() => change(2)} state={2}></Button>
         <Button content="결과보기" onClick={() => change(4)} state={state}></Button>
       </ButtonContainer>
     </Wrapper>
@@ -53,6 +54,13 @@ const RadioContainer = styled.div`
   display: flex;
   justify-content: center;
   gap: 3rem;
+
+  & > #progress{
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    
+  }
 `;
 
 const HiddenRadio = styled.input`

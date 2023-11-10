@@ -12,6 +12,7 @@ const StageOne = (props) => {
 
   return (
     <Wrapper>
+      <div id="progress">1 / 3</div>
       <RadioContainer>
         <RadioLabel selected={state === 0} onClick={() => setState(0)}>
           한식
@@ -39,7 +40,7 @@ const StageOne = (props) => {
         </RadioLabel>
       </RadioContainer>
       <ButtonContainer>
-        <Button content="이전으로" onClick={() => change(0)} state={state}></Button>
+        <Button content="이전으로" onClick={() => change(0)} state={0}></Button>
         <Button content="다음으로" onClick={() => change(2)} state={state}></Button>
       </ButtonContainer>
     </Wrapper>
@@ -53,6 +54,13 @@ const Wrapper = styled.div`
   flex-direction: column;
   gap: 3rem;
   align-items: center;
+
+  & > #progress{
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    
+  }
 `;
 
 const RadioContainer = styled.div`
