@@ -6,13 +6,13 @@ import recommendationList from "../assets/recommendationList";
 
 const ResultMenu = (props) => {
 
-  console.log(props);
+  // console.log(props);
 
   const stageOne=props.result[1];
   const stageTwo=props.result[2];
   const stageThree=props.result[3];
 
-  console.log(stageOne,stageTwo,stageThree);
+  // console.log(stageOne,stageTwo,stageThree);
   const resultMenuInfo=recommendationList[stageOne][stageTwo][stageThree];
 
   const change = (nextstage) => {
