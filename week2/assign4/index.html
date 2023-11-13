@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>가계부</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>수연이의 가계부</header>
+  <main>
+    <article id="balance-container">
+      <div id="balanceBox">
+        <p>나의 자산</p>
+        <h1 id="balance"></h1>
+        <ul>
+          <li class="income">
+            <span>+</span>
+            <span id="totalIncome"></span>
+          </li>
+          <li class="expense">
+            <span>-</span>
+            <span id="totalExpense"></span>
+          </li>
+        </ul>
+      </div>
+    </article>
+    <article id="list-wrapper">
+      <section id="middle-container">
+        <nav id="date-nav">
+          <button>&LT</button>
+          <span id="date">10월 1일</span>
+          <button>&GT</button>
+        </nav>
+        <div id="list-header">
+          <h3>내역 리스트</h3>
+          <div id="checkBtns">
+            <label>
+              <input type="checkbox" id="incomeCheckbox" checked="true"/>
+              <span>수입</span>
+            </label>
+            <label >
+              <input type="checkbox" id="expenseCheckbox" checked="true"/>
+              <span>지출</span>
+            </label>
+          </div>
+        </div>
+      </section>
+      <ul id="lists">
+        <!-- <li>
+            <span class="list-category">식비</span>
+            <span class="list-content">버거킹kingkingkingkingkingkingkingkingking</span>
+            <span class="list-amount income">10232</span>
+            <button type="button" class="xbtn">x</button>
+          </li> -->
+
+        
+      </ul>
+    </article>
+
+    <!-- 내역 추가 모달 -->
+  <section id="add-modal" class="modal">
+    <div class="add-modal-content">
+      <h2>내역 추가</h2>
+      <div id="select-type-container">
+        <label>
+          <input type="radio" name="type" value="income" class="select-type-btn" checked="'true"></input>
+          <span>수입</span>
+        </label>
+        <label>
+          <input type="radio" name="type" value="expense" class="select-type-btn"></input>
+          <span>지출</span>
+        </label>
+      </div>
+      <div class="modal-inputItem-container">
+        <label for="select-category">종류</label>
+        <select id="select-category">
+          
+        </select>
+      </div>
+      <div class="modal-inputItem-container">
+        <label for="addamount">금액</label>
+        <input type="number" id="addamount">
+      </div>
+      <div class="modal-inputItem-container">
+        <label for="addcontent">내용</label>
+        <input type="text" id="addcontent">
+      </div>
+      <button type="button" class="addbtn">내역 추가 하기</button>
+      <button type="button" class="closemodal">닫기</button>
+    </div>
+  </section>
+
+  <!-- 삭제확인 모달 -->
+  <section id="delete-modal" class="modal">
+    <div class="delete-modal-content">
+      <span><p>정말로 삭제하시겠습니까?</p></span>
+      <span>
+        <button class="delete">예</button>
+        <button class="closemodal">아니오</button>
+      </span>
+    </div>
+  </section>
+</main>
+  <footer>
+    <button>+</button>
+  </footer>
+
+
+<script src="./index.js"></script>
+</body>
+</html>
