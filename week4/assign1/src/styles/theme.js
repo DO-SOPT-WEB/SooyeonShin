@@ -1,9 +1,11 @@
 const colors={
+  bgColor:"#ccc",
   black:"#000",
   white:"#fff",
   mainColor:"#d49898",
-  disableColor:"ccc",
-  pointColor:"#49898a7"
+  disableColor:"#f1eded",
+  pointColor:"#f5d6d2",
+  grayColor:"#929090"
 
 }
 
