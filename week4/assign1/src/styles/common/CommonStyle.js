@@ -15,8 +15,9 @@ export const Input=styled.input`
   width: 300px;
   height: 35px;
   border-radius: 10px;
+  padding-left: 5px;
 
-  ${props => props.len&&
+  ${props => props.$len&&
     css`width:200px`};
 
 `

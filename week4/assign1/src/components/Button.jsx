@@ -1,9 +1,9 @@
 import React from 'react';
 import styled,{css} from "styled-components";
 
-const Button = ({content,onClick,len}) => {
+const Button = ({content,onClick,disabled}) => {
   return (
-    <ButtonSt onClick={onClick} len={len}>{content}</ButtonSt>
+    <ButtonSt onClick={onClick} $disabled={disabled}>{content}</ButtonSt>
   )
 }
 
@@ -14,18 +14,14 @@ const ButtonSt=styled.button`
   border: none;
   font-size:18px;
   font-weight: 800;
-  background-color: ${({theme})=>theme.colors.mainColor};
+  background-color: ${({ $disabled,theme }) => ($disabled ? theme.colors.mainColor : '#ccc')}; 
   color: ${({theme})=>theme.colors.white};
 
-  ${props => props.len&&
-    css`width:85px;
-    height:35px;
-    font-size: 15px;
-    font-weight:400;`};
+
 
 
  &:hover{
-  background-color: #f5d6d2;
+  /* background-color: #f5d6d2; */
   cursor: pointer;
  }
 `

@@ -17,7 +17,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Login/>}/>
           <Route path="/signup" element={<Signup/>}/>
-          <Route path="/Mypage" element={<Mypage/>}/>
+          <Route path="/Mypage/:userId" element={<Mypage/>}/>
         </Routes>
       </BrowserRouter>
     </ThemeProvider>

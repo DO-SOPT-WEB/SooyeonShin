@@ -1,12 +1,57 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Wrapper,Label,Input } from '../styles/common/CommonStyle';
 import Button from '../components/Button';
-
+import InputBox from '../components/InputBox';
 import styled from "styled-components"
+import axios from 'axios';
+
+import { useNavigate } from 'react-router-dom';
 
 
 /**회원가입 페이지 */
 const Signup = () => {
+  const API_URL = import.meta.env.VITE_APP_URL;
+  const nav = useNavigate();
+
+  //input 정보들
+  const [username,setUsername]=useState("");
+  const [password,setPassword]=useState("");
+  const [passwordCheck,setPasswordCheck]=useState("");
+  const [nickname,setNickname]=useState("");
+
+  //그외
+  const  [checkDup,setCheckDup]=useState(0);
+  const [canSignup,setCanSignup]=useState(false);
+
+
+  //중복체크
+  const checkDuplicate=(e)=>{
+    axios.get(`${API_URL}/api/v1/members/check?username=${username}`)
+    .then(res=>{
+      res.data.isExist? setCheckDup(1):setCheckDup(2);
+    })
+  }
+
+
+  //회원가입 버튼 활성화
+  useEffect(()=>{
+    username&&password&&passwordCheck&&nickname ? setCanSignup(true): setCanSignup(false);
+    console.log(canSignup);
+  },[username,password,passwordCheck,nickname]);
+
+  //회원가입
+  const submitSignup=()=>{
+    axios.post(`${API_URL}/api/v1/members`,{
+      "username": username,
+      "nickname": nickname, 
+      "password": password
+  })
+  .then(res=>{
+    nav('/');
+  })
+    
+  }
+
   return (
     <Wrapper>
       <Container>
@@ -15,25 +60,19 @@ const Signup = () => {
         <div className='input'>
             <Label htmlFor="id">ID</Label>
             <span className='duplicateContainer'>
-            <Input type='text' len='short' ></Input>
-            <Button content="중복체크" onClick={()=>{}} len='short'/>
+            <Input type='text' $len='short' placeholder='아이디를 입력해주세요' value={username} onChange={(e)=>{
+              setUsername(e.target.value);
+      
+            }}></Input>
+            <DupBtn onClick={checkDuplicate} $checkDup={checkDup}>중복확인</DupBtn>
             </span>
           </div>
-          <div className='input'>
-            <Label htmlFor="pw">비밀번호</Label>
-            <Input type='text' name='pw'></Input>
-          </div>
-          <div className='input'>
-            <Label htmlFor="checkpw">비밀번호 확인</Label>
-            <Input type='text' name='checkpw'></Input>
-          </div>
-          <div className='input'>
-            <Label htmlFor="nickname">닉네임</Label>
-            <Input type='text' name='nickname'></Input>
-          </div>
+          <InputBox name="pw" label="비밀번호" placeholder="비밀번호를 입력해주세요" value={password} onChange={setPassword}/>
+          <InputBox name="pwcheck" label="비밀번호 확인" placeholder="비밀번호를 다시 한 번 입력해주세요"value={passwordCheck} onChange={setPasswordCheck}/>
+          <InputBox name="nickname" label="닉네임" placeholder="닉네임을 입력해주세요" value={nickname} onChange={setNickname}/>
           
         </div>
-        <Button content="회원가입" onClick={()=>{}}/>
+        <Button content="회원가입" disabled={canSignup} onClick={submitSignup}/>
        
       </Container>
     </Wrapper>
@@ -71,6 +110,23 @@ const Container=styled.div`
   justify-content: space-between;
 }
 
+`
+
+const DupBtn=styled.button`
+  width: 85px;
+  height: 35px;
+  border-radius: 10px;
+  border: none;
+  font-size: 15px;
+  font-weight: 400;
+  background-color: ${({ $checkDup }) => $checkDup===0 ? '#000' : ($checkDup===1 ? 'red':'green')};
+  color: ${({theme})=>theme.colors.white};
+
+
+ &:hover{
+  /* background-color: #f5d6d2; */
+  cursor: pointer;
+ }
 `
 
 export default Signup
