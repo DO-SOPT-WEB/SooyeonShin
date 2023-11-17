@@ -1,8 +1,45 @@
-# React + Vite
+ - 로딩 / 에러 처리를 하는 방법에는 어떤 것들이 있을까?
+    >Try/Catch 블록:
+    코드에서 예외가 발생할 수 있는 부분을 try 블록에 넣고, 예외가 발생하면 catch 블록에서 이를 잡아내어 처리한다.
+    
+    콜백 함수:
+    비동기 작업에서 종종 사용되며, 함수가 완료되었을 때 실행되는 콜백에 성공 또는 실패 로직을 작성한다.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+    프로미스(Promise):
+    ES6에 도입된 프로미스는 비동기 작업의 완료 또는 실패를 나타내는 객체로, .then()과 .catch() 메서드를 사용하여 결과를 처리한다.
 
-Currently, two official plugins are available:
+    async/await:
+    ES2017에서 도입된 async/await는 프로미스를 더 읽기 쉽게 만들어주며, try/catch와 함께 사용하여 에러를 처리한다.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+    로딩 상태 관리:
+    UI 상태 변수(예: isLoading, isError)를 사용하여 로딩 상태와 에러 상태를 관리하고, 이를 기반으로 사용자에게 피드백을 제공함.
+
+    이벤트 리스너/에미터:
+    특정 이벤트 발생 시 호출되는 리스너를 등록하여 에러를 처리함.
+
+    인터셉터(Interceptors):
+    많은 HTTP 클라이언트 라이브러리에서 제공하는 인터셉터를 사용하여 요청/응답을 가로채 에러 처리함.    
+ - 패칭 라이브러리란 무엇이고 어떤 것들이 있을까?
+  >패칭 라이브러리는 웹 애플리케이션에서 외부 API 또는 서버로부터 데이터를 가져오기 위해 HTTP 요청을 보내는 작업을 돕는 라이브러리이다. 이러한 라이브러리는 HTTP 클라이언트의 역할을 하며, 개발자가 네트워크 요청을 쉽게 만들고 관리할 수 있도록 도와준다.
+
+  Fetch API,
+  Axios,
+  jQuery.ajax(),
+  Superagent
+
+ - 패칭 라이브러리를 쓰는 이유는 무엇일까?
+    
+    간편성:
+    복잡한 네트워크 요청 로직을 추상화하여 개발자가 쉽게 HTTP 요청을 구성하고 실행할 수 있게 해줌.
+
+    기능성:
+    타임아웃, 쿠키, 헤더 설정 등의 고급 기능과 에러 처리를 쉽게 할 수 있는 기능을 제공.
+
+    프로미스 지원:
+    비동기 요청을 처리할 때 프로미스를 사용하여 코드의 가독성을 높이고, 비동기 코드의 복잡성을 관리할 수 있음.
+
+    브라우저 호환성:
+    다양한 브라우저에서 일관된 방식으로 HTTP 요청을 보낼 수 있도록 도와줌.
+
+    커뮤니티와 지원:
+    널리 사용되는 라이브러리는 커뮤니티의 지원을 받아 문제 발생 시 해결책을 찾기 쉽고, 지속적인 업데이트가 이루어집니다.
