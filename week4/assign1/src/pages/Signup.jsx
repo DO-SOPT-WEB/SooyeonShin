@@ -35,7 +35,7 @@ const Signup = () => {
 
   //회원가입 버튼 활성화
   useEffect(()=>{
-    username&&password&&passwordCheck&&nickname&&checkDup ? setCanSignup(true): setCanSignup(false);
+    username&&password&&passwordCheck&&nickname&&(checkDup===2) ? setCanSignup(true): setCanSignup(false);
     console.log(canSignup);
   },[username,password,passwordCheck,nickname,checkDup]);
 
