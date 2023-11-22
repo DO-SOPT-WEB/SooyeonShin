@@ -12,15 +12,20 @@ const Mypage = () => {
   const [userId,setuserId]=useState("");
   const [nickname,setNickname]=useState("");
 
-  const getInfo=()=>{
-    axios.get(`${API_URL}/api/v1/members/${memberId}`)
-    .then(res=>{
-      setuserId(res.data.username);
-      setNickname(res.data.nickname);
-    })
-    .catch(err=>{
+  const imgUrl='https://search.pstatic.net/sunny/?src=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F8e%2Fe6%2F82%2F8ee68280783c081cc1ecd7e20342d050.jpg&type=a340';
+  
+  
 
-    })
+  const getInfo=async ()=>{
+
+    try {
+      const res =await axios.get(`${API_URL}/api/v1/members/${memberId}`);
+      const {username, nickname} = res.data; //구조분해 할당으로 가져오기
+      setuserId(username);
+      setNickname(nickname);
+    } catch {
+      (err)=>console.log(err);
+    }
   }
 
   useEffect(()=>{
@@ -32,7 +37,7 @@ const Mypage = () => {
       <Container>
         <h1>My Page</h1>
         <section>
-          <img alt='프로필 사진' src='https://search.pstatic.net/sunny/?src=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F8e%2Fe6%2F82%2F8ee68280783c081cc1ecd7e20342d050.jpg&type=a340'/>
+          <img alt='프로필 사진' src={imgUrl}/>
           <span className='text-info-container'> 
             <Info>ID: {userId}</Info>
             <Info>닉네임: {nickname}</Info>

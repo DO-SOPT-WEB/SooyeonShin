@@ -2,8 +2,8 @@ import GlobalStyle from "./styles/GlobalStyle"
 import { ThemeProvider } from "styled-components";
 import theme from "./styles/theme";
 import './App.css';
-import {BrowserRouter, Routes,Route} from "react-router-dom";
-import {Login,Mypage,Signup} from "./pages";
+import {BrowserRouter} from "react-router-dom";
+import Router from "./components/Router";
 
 
 function App() {
@@ -14,11 +14,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <BrowserRouter>
         <GlobalStyle/>
-        <Routes>
-          <Route path="/" element={<Login/>}/>
-          <Route path="/signup" element={<Signup/>}/>
-          <Route path="/Mypage/:userId" element={<Mypage/>}/>
-        </Routes>
+        <Router/>
       </BrowserRouter>
     </ThemeProvider>
     </div>

@@ -6,7 +6,7 @@ const InputBox = ({name,label,placeholder,value,onChange}) => {
   return (
     <InputContaier>
       <Label htmlFor={name}>{label}</Label>
-      <Input type='text' name={name} placeholder={placeholder} value={value} onChange={(e)=>onChange(e.target.value)}></Input>
+      <Input type='text'  name={name} placeholder={placeholder} value={value} onChange={(e)=>onChange(e.target.value)}></Input>
     </InputContaier>
   )
 }

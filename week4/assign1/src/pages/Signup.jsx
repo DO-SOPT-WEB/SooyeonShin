@@ -20,7 +20,7 @@ const Signup = () => {
   const [nickname,setNickname]=useState("");
 
   //그외
-  const  [checkDup,setCheckDup]=useState(0);
+  const  [checkDup,setCheckDup]=useState('yet');
   const [canSignup,setCanSignup]=useState(false);
 
 
@@ -28,27 +28,38 @@ const Signup = () => {
   const checkDuplicate=(e)=>{
     axios.get(`${API_URL}/api/v1/members/check?username=${username}`)
     .then(res=>{
-      res.data.isExist? setCheckDup(1):setCheckDup(2);
+      res.data.isExist? setCheckDup('exist'):setCheckDup('notExist');
     })
   }
 
 
   //회원가입 버튼 활성화
   useEffect(()=>{
-    username&&password&&passwordCheck&&nickname&&(checkDup===2) ? setCanSignup(true): setCanSignup(false);
-    console.log(canSignup);
+    username&&password&&passwordCheck&&nickname&&(checkDup==='notExist') ? setCanSignup(true): setCanSignup(false);
   },[username,password,passwordCheck,nickname,checkDup]);
 
   //회원가입
   const submitSignup=()=>{
-    axios.post(`${API_URL}/api/v1/members`,{
-      "username": username,
-      "nickname": nickname, 
-      "password": password
-  })
-  .then(res=>{
-    nav('/');
-  })
+    try {
+       axios.post(`${API_URL}/api/v1/members`,{
+            "username": username,
+            "nickname": nickname, 
+            "password": password
+        })
+        .then(()=>{
+            nav('/');
+          })
+    } catch {
+      (err)=>console.log(err);
+    }
+  //   axios.post(`${API_URL}/api/v1/members`,{
+  //     "username": username,
+  //     "nickname": nickname, 
+  //     "password": password
+  // })
+  // .then(res=>{
+  //   nav('/');
+  // })
     
   }
 
@@ -119,7 +130,7 @@ const DupBtn=styled.button`
   border: none;
   font-size: 15px;
   font-weight: 400;
-  background-color: ${({ $checkDup }) => $checkDup===0 ? '#000' : ($checkDup===1 ? 'red':'green')};
+  background-color: ${({ $checkDup }) => $checkDup==='yet' ? '#000' : ($checkDup==='exist' ? 'red':'green')};
   color: ${({theme})=>theme.colors.white};
 
 

@@ -23,13 +23,12 @@ const Login = () => {
       username&&password ? setCanLogin(true): setCanLogin(false);
     },[username,password]);
 
-  const submitLogin=(e)=>{
+  const submitLogin=()=>{
     axios.post(`${API_URL}/api/v1/members/sign-in`,{
       "username":username,
       "password":password
     }).then(res=>{
-      console.log(res.data);
-      nav(`/Mypage/${res.data.id}`);
+      nav(`/mypage/${res.data.id}`);
     }).catch(err=>{
 
     })

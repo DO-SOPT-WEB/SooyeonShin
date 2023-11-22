@@ -11,14 +11,15 @@ export const Wrapper=styled.div`
   }
 `
 
+
+
 export const Input=styled.input`
   width: 300px;
   height: 35px;
   border-radius: 10px;
   padding-left: 5px;
 
-  ${props => props.$len&&
-    css`width:200px`};
+  ${({ $len }) =>($len==='short')&& css`width:200px` };
 
 `
 
