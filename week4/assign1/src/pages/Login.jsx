@@ -1,6 +1,6 @@
 import React, { useState,useEffect } from 'react'
 import styled from "styled-components";
-import { Wrapper,Input,Label } from '../styles/common/CommonStyle';
+import { Wrapper} from '../styles/common/CommonStyle';
 import Button from '../components/Button';
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
